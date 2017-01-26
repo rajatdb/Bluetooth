@@ -13,30 +13,36 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Set;
 
-public class BlueToothActivity extends Activity {
+public class BlueToothActivity extends Activity implements View.OnClickListener {
     AlertDialog ad;
 
     private BluetoothAdapter BA;
     private Set<BluetoothDevice> pairedDevices;
     ListView lv;
+    Button send;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_blue_tooth);
 
-        Button b1 =(Button)findViewById(R.id.button);
-        Button b2 =(Button)findViewById(R.id.button2);
-        Button b3 =(Button)findViewById(R.id.button3);
-        Button b4 =(Button)findViewById(R.id.button4);
+        Button b1 = (Button) findViewById(R.id.button);
+        Button b2 = (Button) findViewById(R.id.button2);
+        Button b3 = (Button) findViewById(R.id.button3);
+        Button b4 = (Button) findViewById(R.id.button4);
+        send = (Button) findViewById(R.id.send);
+
+        send.setOnClickListener(this);
+
 
         BA = BluetoothAdapter.getDefaultAdapter();
-        lv = (ListView)findViewById(R.id.listView);
+        lv = (ListView) findViewById(R.id.listView);
     }
 
     public void on(View v){
@@ -71,6 +77,12 @@ public class BlueToothActivity extends Activity {
         final ArrayAdapter adapter = new  ArrayAdapter(this,android.R.layout.simple_list_item_1, list);
 
         lv.setAdapter(adapter);
+    }
+
+    @Override
+    public void onClick(View v) {
+                Intent intent = new Intent(BlueToothActivity.this,Send_Data.class);
+                startActivity(intent);
     }
 
     @Override

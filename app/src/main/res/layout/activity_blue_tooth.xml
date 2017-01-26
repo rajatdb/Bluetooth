@@ -13,7 +13,7 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="100dp"
         android:id="@+id/bluetooth"
         android:src="@drawable/blue" />
 
@@ -71,6 +71,17 @@
         android:layout_below="@+id/button"
         />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="SEND DATA"
+        android:id="@+id/send"
+        android:elevation="16dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rounded_bt_buttons"
+        android:layout_below="@id/button3"
+        />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -81,7 +92,7 @@
         android:textStyle="bold"
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/button4" />
+        android:layout_below="@+id/send" />
 
     <ListView
         android:layout_width="wrap_content"
